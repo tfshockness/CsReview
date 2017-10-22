@@ -9,7 +9,7 @@ using static System.Console; //Using static allowed you to refer static members 
 
 
 //Best format for namespaces is : CompanyName.ProjectName.SystemSection
-namespace CsReview.Core //Declare the namespace where the class should be associated
+namespace CsReview.Chp2 //Declare the namespace where the class should be associated
 {
     public class Basics //public is the acessor for the class. Basic is the nome of the class.
     {

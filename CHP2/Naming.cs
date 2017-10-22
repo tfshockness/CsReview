@@ -4,7 +4,7 @@ using System;
 //Camel case - variableName;
 //Pascal case - VariableName;
 
-namespace CsReview.Core
+namespace CsReview.Chp2
 {
     public class Naming
     {

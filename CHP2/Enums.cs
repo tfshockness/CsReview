@@ -1,5 +1,5 @@
 
-namespace CsReview.Core
+namespace CsReview.Chp2
 {
     public enum Enums
     {
