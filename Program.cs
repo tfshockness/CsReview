@@ -1,34 +1,36 @@
 ﻿using static System.Console;
-using CsReview.Chp2;
-using CsReview.Chp3;
+using CsReview.Chp4;
+using CsReview.Chp4.Shapes;
+using CsReview.Chp4.Interfaces;
+using CsReview.Chp4.VenusBank;
+using CsReview.Chp4.JupiterBank;
+
 namespace CsReview
 {
     class Program
     {
         static void Main(string[] args)
         {
-            WriteLine(Enums.Morning);
-            Customer customer = new Customer();
-            WriteLine(customer.displayInfo());
+           IBankAccount venusAccount = new SaverAccount();
+           IBankAccount jupiterAccount = new GoldAccount();
+           ITransferBankAccount jupiterAccount2 = new CurrentAccount();
 
-            customer.FirstName = "Tim";
-            customer.LastName = "Shockness     ";
+           venusAccount.PayIn(200);
+           venusAccount.Withdraw(100);
+           WriteLine(venusAccount.ToString());
 
-            WriteLine(customer.displayInfo());
+           jupiterAccount.PayIn(500);
+           jupiterAccount.Withdraw(600);
+           jupiterAccount.Withdraw(100);
+           WriteLine(jupiterAccount.ToString());
 
-            var customer2 = new Customer()//First initialize the Object with Default Values
-            { //Than, Pass values to the properties. If I try to Pass Age, I cannot because age is read-only
-            FirstName = "John", 
-            LastName = "Doe"
-            };
- 
-            WriteLine(customer2.displayInfo());
-            customer2.isTest();
-            
+            //Put money in jupiter2
+            jupiterAccount2.PayIn(400);
+           //Transfering money from Jupiter Account to VenusAccount
+           jupiterAccount2.TransferTo(venusAccount, 100);
 
-            Car myCar = new Car("My beautiful Audi");
-            WriteLine($"{myCar.Description} has {myCar.NumberWheels} Wheels");
-
+           WriteLine(venusAccount.ToString());
+           WriteLine(jupiterAccount2.ToString());
         }
     }
 }
